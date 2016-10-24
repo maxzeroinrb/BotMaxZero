@@ -10,33 +10,33 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if($event[‘type’] == ‘message’){
- 				switch($event[‘message’][‘type’]){
-	 				case ‘text’:
-	 					$replyToken = $event['replyToken'];  
+		if($event['type'] == 'message'){
+ 				switch($event['message']['type']){
+	 				case 'text':
+	 					
 	 					$text = $event['message']['text'];
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
 							];
 					break;
-					case ‘image’:
+					case 'image':
 
 					break;
-					 case ‘video’:
+					 case 'video':
 					 
 					 break;
-					 case ‘audio’:
+					 case 'audio':
 					 
 					 break;
-					 case ‘location’:
+					 case 'location':
 
 					break;
-					 case ‘sticker’:
+					 case 'sticker':
 
 					 break;
 			    }
-			  
+			  $replyToken = $event['replyToken'];  
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
