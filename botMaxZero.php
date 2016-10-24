@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 							'type' => 'sticker',
 							'packageId' => '3',
 							'stickerId' => '180'
-	 							]
+	 							];
 					 break;
 			    }
 			  $replyToken = $event['replyToken'];  
