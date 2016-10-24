@@ -11,7 +11,7 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
 		if($event[‘type’] == ‘message’){
- 				switch($item[‘message’][‘type’]){
+ 				switch($event[‘message’][‘type’]){
 	 				case ‘text’:
 	 					$text = $event['message']['text'];
 	 					$messages = [
