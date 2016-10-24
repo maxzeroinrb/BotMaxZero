@@ -14,16 +14,39 @@ if (!is_null($events['events'])) {
  				switch($event['message']['type']){
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
-	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
 
-	 					}else{
-	 						$text = "ว่าอะไรนะ";
-	 					}
-	 					 $replyToken = $event['replyToken'];  
-	 					$messages = [
+	 						$replyToken = $event['replyToken'];  
+	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
+	 							 			
+	 					 	$sticker = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '180'	
+	 						];
+							$messages = [
 							'type' => 'text',
 							'text' => $text
 							];
+
+
+	 					}else{
+	 						$text = "ว่าอะไรนะ";
+	 						$sticker = [
+							'type' => 'sticker',
+							'packageId' => '2',
+							'stickerId' => '149'	
+	 						];
+	 						$messages = [
+							'type' => 'text',
+							'text' => $text
+							];
+	 					}
+
+						$senddata =  [
+							'replyToken' => $replyToken,
+							'messages' => [$sticker,$messages],
+						];
+
 					break;
 					case 'image':
 
@@ -44,10 +67,7 @@ if (!is_null($events['events'])) {
 			 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages,$messages],
-			];
+			$data = $senddata;
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
