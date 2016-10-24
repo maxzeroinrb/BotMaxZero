@@ -15,17 +15,15 @@ if (!is_null($events['events'])) {
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
-
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
 	 					}
-
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
 							];
-
-							$replyToken = $event['replyToken'];  
+						 $replyToken = $event['replyToken'];  
+							// Make a POST Request to Messaging API to reply to sender
 							$url = 'https://api.line.me/v2/bot/message/reply';
 							$data = [
 								'replyToken' => $replyToken,
@@ -44,33 +42,6 @@ if (!is_null($events['events'])) {
 							curl_close($ch);
 
 							echo $result . "\r\n";
-
-							$messages = [
-										'type' => 'sticker',
-										'packageId' => '3',
-										'stickerId' => '180'
-	 							]
-
-							$replyToken = $event['replyToken'];  
-							$url = 'https://api.line.me/v2/bot/message/reply';
-							$data = [
-								'replyToken' => $replyToken,
-								'messages' => [$messages],
-							];
-							$post = json_encode($data);
-							$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-							$ch = curl_init($url);
-							curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-							curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-							curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-							curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-							curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-							$result = curl_exec($ch);
-							curl_close($ch);
-
-							echo $result . "\r\n";
-
 					break;
 					case 'image':
 
@@ -88,7 +59,31 @@ if (!is_null($events['events'])) {
 
 					 break;
 			    }
-	
+			  $replyToken = $event['replyToken'];  
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+				$messages = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '180'
+	 							]
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+
+			echo $result . "\r\n";
 		}
 	}
 }
