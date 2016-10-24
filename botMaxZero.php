@@ -13,13 +13,17 @@ if (!is_null($events['events'])) {
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
 	 				case 'text':
-	 					if($event['message']['text'] == "/ที่อยู่ ini3"){
-	 						$text = "149 อาคารแกแล็คซี่เพลส ชั้น 8 (ห้อง 8/1-8/2) ถนนนนทรี แขวงช่องนนทรี เขตยานนาวา กรุงเทพฯ 10120";
+	 					if($event['message']['text'] == "/help"){
+	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
 
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
 	 					}
-	 					
+	 					$sticker = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '180'
+	 							]
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
@@ -46,7 +50,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$sticker][$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
