@@ -9,15 +9,17 @@ $events = json_decode($content, true);
 if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
+		// Reply only when message sent is in 'text' format
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
+
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
 	 					}
-
+	 					
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
@@ -36,18 +38,16 @@ if (!is_null($events['events'])) {
 
 					break;
 					 case 'sticker':
-					 	$messages = [
+					 		$messages = [
 							'type' => 'sticker',
 							'packageId' => '3',
 							'stickerId' => '180'
 	 							]
-
 					 break;
 			    }
 			  $replyToken = $event['replyToken'];  
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
-
 			$data = [
 				'replyToken' => $replyToken,
 				'messages' => [$messages],
