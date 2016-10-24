@@ -37,25 +37,35 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$sticker,$messages1,$messages2],
 							];
+						}else if($event['message']['text'] == "/address ini3"){
 
-	 					}else{
-	 						$text = "ว่าอะไรนะ";
-	 						$sticker = [
-							'type' => 'sticker',
-							'packageId' => '2',
-							'stickerId' => '149'	
-	 						];
-	 						$messages1 = [
+							$text = "149 อาคารแกแล็คซี่เพลส ชั้น 8 (ห้อง 8/1-8/2) ถนนนนทรี แขวงช่องนนทรี เขตยานนาวา กรุงเทพฯ 10120";
+							$messages1 = [
 							'type' => 'text',
 							'text' => $text
 							];
-
 							$replyToken = $event['replyToken']; 
 							$senddata =  [
 								'replyToken' => $replyToken,
-								'messages' => [$sticker,$messages1],
+								'messages' => [$messages1],
 							];
-	 					}
+						}else if($event['message']['text'] == "/location winner"){
+
+							$messages1 = [
+							'type' => 'location',
+							'title'=>  "Winner",
+							'address'=>  "446/71 ชั้น 3-5 อาคารปาร์คอเวนิว 2 ซ. ปรีดีพนมยงค์ 20/1, ถนนสุขุมวิท, แขวงพระโขนงเหนือ เขตวัฒนา กรุงเทพมหานคร, 10110 10110",
+							 "latitude"=>  13.7239694,
+    						"longitude"=>  100.5963188
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}	
+
+	 					
 	 				
 
 					break;
