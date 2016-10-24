@@ -13,8 +13,13 @@ if (!is_null($events['events'])) {
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
 	 				case 'text':
+	 					if($event['message']['text'] == "/ที่อยู่ ini3"){
+	 						$text = "149 อาคารแกแล็คซี่เพลส ชั้น 8 (ห้อง 8/1-8/2) ถนนนนทรี แขวงช่องนนทรี เขตยานนาวา กรุงเทพฯ 10120";
+
+	 					}else{
+	 						$text = "ว่าอะไรนะ";
+	 					}
 	 					
-	 					$text = $event['message']['text'];
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
