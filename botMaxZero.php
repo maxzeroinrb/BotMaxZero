@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 							];
 							$messages2 = [
 							'type' => 'text',
-							'text' => "1. /address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  2. /location [winner]ชื่อที่ตั้งบริษัทเกมส์วินเนอร์ \n 3. [ใส่ชื่อคนที่ต้องการเรียก]"
+							'text' => "1. /address [ini3] ขอที่อยู่ บริษัทอินิทรี\n2. /location [winner]ชื่อที่ตั้งบริษัทเกมส์วินเนอร์\n3. [ใส่ชื่อคนที่ต้องการเรียก]"
 							];
 
 							$replyToken = $event['replyToken']; 
