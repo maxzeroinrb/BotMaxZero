@@ -18,6 +18,11 @@ if (!is_null($events['events'])) {
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
 	 					}
+	 					$sticker = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '180'
+	 							]
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
@@ -28,6 +33,7 @@ if (!is_null($events['events'])) {
 							$data = [
 								'replyToken' => $replyToken,
 								'messages' => [$messages],
+								'messages' => [$sticker]
 							];
 							$post = json_encode($data);
 							$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
