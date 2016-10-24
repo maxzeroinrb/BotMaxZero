@@ -15,7 +15,7 @@ if (!is_null($events['events'])) {
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 
-	 						 
+
 	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
 	 							 			
 	 					 	$sticker = [
@@ -23,9 +23,13 @@ if (!is_null($events['events'])) {
 							'packageId' => '3',
 							'stickerId' => '180'	
 	 						];
-							$messages = [
+							$messages1 = [
 							'type' => 'text',
 							'text' => $text
+							];
+							$messages2 = [
+							'type' => 'text',
+							'text' => "/address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  /location [ชื่อบริษัทเกมส์]"
 							];
 
 
@@ -36,7 +40,7 @@ if (!is_null($events['events'])) {
 							'packageId' => '2',
 							'stickerId' => '149'	
 	 						];
-	 						$messages = [
+	 						$messages1 = [
 							'type' => 'text',
 							'text' => $text
 							];
@@ -44,7 +48,7 @@ if (!is_null($events['events'])) {
 	 					$replyToken = $event['replyToken']; 
 						$senddata =  [
 							'replyToken' => $replyToken,
-							'messages' => [$sticker,$messages],
+							'messages' => [$sticker,$messages1,$messages2],
 						];
 
 					break;
