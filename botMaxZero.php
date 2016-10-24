@@ -186,7 +186,43 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1],
 							];
-						}					
+						}else if($event['message']['text'] == "พี่วิทครับ"){
+
+							$text = "แปปนึง กำลังดัน payload";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "พี่วิทคับ"){
+
+							$text = "แปปนึง กำลังดัน payload";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "กาก"){
+
+							$text = "เออ กากสัส";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}							
 			
 
 	 					
