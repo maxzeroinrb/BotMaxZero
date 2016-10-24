@@ -29,9 +29,14 @@ if (!is_null($events['events'])) {
 							];
 							$messages2 = [
 							'type' => 'text',
-							'text' => "/address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  /location [ชื่อบริษัทเกมส์]"
+							'text' => "/address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  /location [winner]ชื่อบริษัทเกมส์"
 							];
 
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$sticker,$messages1,$messages2],
+							];
 
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
@@ -44,12 +49,14 @@ if (!is_null($events['events'])) {
 							'type' => 'text',
 							'text' => $text
 							];
+
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$sticker,$messages1],
+							];
 	 					}
-	 					$replyToken = $event['replyToken']; 
-						$senddata =  [
-							'replyToken' => $replyToken,
-							'messages' => [$sticker,$messages1,$messages2],
-						];
+	 				
 
 					break;
 					case 'image':
