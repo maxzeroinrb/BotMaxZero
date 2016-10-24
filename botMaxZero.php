@@ -157,7 +157,36 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1,$sticker],
 							];
-						}				
+						}else if($event['message']['text'] == "แมก"){
+
+							$text = "คุณแม็กสุดหล่อมีคนกำลังเรียกค่ะ";
+							$sticker = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '181'	
+	 						];
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1,$sticker],
+							];
+						}else if($event['message']['text'] == "แกป"){
+
+							$text = "เฮ้ยยย ตีบอสอยู่ รอแปป";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}					
 			
 
 	 					
