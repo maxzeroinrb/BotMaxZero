@@ -15,7 +15,7 @@ if (!is_null($events['events'])) {
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 
-	 						$replyToken = $event['replyToken'];  
+	 						 
 	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
 	 							 			
 	 					 	$sticker = [
@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 							'text' => $text
 							];
 	 					}
-
+	 					$replyToken = $event['replyToken']; 
 						$senddata =  [
 							'replyToken' => $replyToken,
 							'messages' => [$sticker,$messages],
