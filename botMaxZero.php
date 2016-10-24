@@ -13,24 +13,17 @@ if (!is_null($events['events'])) {
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
 	 				case 'text':
-
 	 					if($event['message']['text'] == "/help"){
 	 						$text = "คุณสามารถ พิมพ์ว่า /help เพื่อลิสดูคำสั่งที่สามารถทำงานให้คุณได้ค่ะ";
 
 	 					}else{
 	 						$text = "ว่าอะไรนะ";
 	 					}
-	 					 $replyToken = $event['replyToken'];  
-	 				   $messages:[
-							        {
-							            "type":"text",
-							            "text":"Hello, user"
-							        },
-							        {
-							            "type":"text",
-							            "text":"May I help you?"
-							        }
-							    ];
+	 					
+	 					$messages = [
+							'type' => 'text',
+							'text' => $text
+							];
 					break;
 					case 'image':
 
@@ -45,14 +38,10 @@ if (!is_null($events['events'])) {
 
 					break;
 					 case 'sticker':
-					 		$messages = [
-							'type' => 'sticker',
-							'packageId' => '3',
-							'stickerId' => '180'
-	 							];
+
 					 break;
 			    }
-			
+			  $replyToken = $event['replyToken'];  
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
@@ -73,7 +62,6 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		}
-
 	}
 }
 echo "OK";
