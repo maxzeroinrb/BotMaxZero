@@ -29,7 +29,7 @@ if (!is_null($events['events'])) {
 							];
 							$messages2 = [
 							'type' => 'text',
-							'text' => "/address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  /location [winner]ชื่อบริษัทเกมส์"
+							'text' => "1. /address [ini3] ขอที่อยู่ บริษัทอินิทรี \n  2. /location [winner]ชื่อบริษัทเกมส์ \n 3. [ใส่ชื่อคนที่ต้องการเรียก]"
 							];
 
 							$replyToken = $event['replyToken']; 
@@ -53,7 +53,7 @@ if (!is_null($events['events'])) {
 
 							$messages1 = [
 							'type' => 'location',
-							'title'=>  'Winner',
+							'title'=>  'Winner Online Co.th',
 							'address'=>  '446/71 ชั้น 3-5 อาคารปาร์คอเวนิว 2',
 							'latitude'=>  13.7239694,
     						'longitude'=>  100.5963188
@@ -63,7 +63,102 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1],
 							];
-						}	
+						}else if($event['message']['text'] == "/location ini3"){
+
+							$messages1 = [
+							'type' => 'location',
+							'title'=>  'Ini3 Digital Co.,LTD.',
+							'address'=>  '149 ถนน นนทรี Yan Nawa',
+							'latitude'=>  13.6977828,
+    						'longitude'=>  100.5384816
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "/location garena"){
+
+							$messages1 = [
+							'type' => 'location',
+							'title'=>  'Garena Online (Thailand) Co.,Ltd.',
+							'address'=>  'Level 24, AIA Capital Center Building',
+							'latitude'=>  13.7644754,
+    						'longitude'=>  100.5660648
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "แก๊ป"){
+
+							$text = "เฮ้ยยย ตีบอสอยู่ รอแปป";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "กาย"){
+
+							$text = "ดูบอลอยู่ รอก่อน";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "ทัต"){
+
+							$text = "มุงใจเย็นดิ กุขอทำตรงนี้ก่อน";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}else if($event['message']['text'] == "พี่วิท"){
+
+							$text = "แปปนึง กำลังดัน payload";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}
+						else if($event['message']['text'] == "แม็ก"){
+
+							$text = "คุณแม็กสุดหล่อมีคนกำลังเรียกค่ะ";
+							$sticker = [
+							'type' => 'sticker',
+							'packageId' => '3',
+							'stickerId' => '181'	
+	 						];
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1,$sticker],
+							];
+						}				
+			
 
 	 					
 	 				
