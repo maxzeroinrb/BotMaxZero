@@ -13,6 +13,7 @@ if (!is_null($events['events'])) {
 		if($event[‘type’] == ‘message’){
  				switch($item[‘message’][‘type’]){
 	 				case ‘text’:
+	 					$text = $event['message']['text'];
 	 					$messages = [
 							'type' => 'text',
 							'text' => $text
