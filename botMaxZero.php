@@ -270,7 +270,43 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1],
 							];
-						}												
+						}else if($event['message']['text'] == "555"){
+
+							$sticker = [
+							'type' => 'sticker',
+							'packageId' => '1',
+							'stickerId' => '110'	
+	 						];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$sticker],
+							];
+						}else if($event['message']['text'] == "5555"){
+
+							$sticker = [
+							'type' => 'sticker',
+							'packageId' => '1',
+							'stickerId' => '110'	
+	 						];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$sticker],
+							];
+						}else if($event['message']['text'] == "55555"){
+
+							$sticker = [
+							'type' => 'sticker',
+							'packageId' => '1',
+							'stickerId' => '110'	
+	 						];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$sticker],
+							];
+						}														
 			
 
 	 					
