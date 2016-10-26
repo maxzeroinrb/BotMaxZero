@@ -222,7 +222,19 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1],
 							];
-						}							
+						}else if($event['message']['text'] == "แก๊ปไปเชียงใหม่ป่ะ"){
+
+							$text = "อย่าถามแก๊ปเลย รู้ๆกันอยู่";
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
+						}								
 			
 
 	 					
