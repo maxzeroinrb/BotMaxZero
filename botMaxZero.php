@@ -258,7 +258,7 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$messages1],
 							];
-						}else if($event['message']['text'] == "แก๊ปไปป่ะ"){
+						}else if($event['message']['text'] == "ทัตไปป่ะ"){
 
 							$text = "ไม่ไป กุรีบกลับ";
 							$messages1 = [
