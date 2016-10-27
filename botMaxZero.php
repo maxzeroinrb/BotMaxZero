@@ -14,6 +14,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
+ 					$eventM = $event['message']['text'];
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 
@@ -308,7 +309,7 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$sticker],
 							];
-						}else if($event['message']['text'] == "/giphy".$event['message']['text']){
+						}else if($event['message']['text'] == "123"){
 							// $url_giphy = 'http://api.giphy.com/v1/gifs/search?q='.$event['message']['text'].'&api_key'.$giphy_key;
 							// $json_giphy =json_decode(file_get_contents($url_giphy));
 							// $result_giphy = $json['data'][0]['embed_url'];
