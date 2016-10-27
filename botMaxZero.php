@@ -1,6 +1,8 @@
 <?php
 $access_token = 'jtqPqB5fZ6o4qDNivmswM07ymMVt8Sd0JFzW5NzSHApplakd3v/CP/KwrzSIZLJ9nrhhgfJBJ7iXjSdDVks4jkjHvP3kL767FnvjAJ0zhMPiF7EkROzBRtpY9NQ++WMFVt4WY+RHePqqiprDW9bjZgdB04t89/1O/w1cDnyilFU=';
+$giphy_key = 'dc6zaTOxFJmzC'
 
+//http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC 
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -305,6 +307,21 @@ if (!is_null($events['events'])) {
 							$senddata =  [
 								'replyToken' => $replyToken,
 								'messages' => [$sticker],
+							];
+						}else if($event['message']['text'] == "/giphy".$event['message']['text']){
+							$url_giphy = 'http://api.giphy.com/v1/gifs/search?q='.$event['message']['text'].'&api_key'.$giphy_key;
+							$json_giphy =json_decode(file_get_contents($url_giphy));
+							$result_giphy = $json['data'][0]['embed_url'];
+
+							$text = $result_giphy;
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
 							];
 						}														
 			
