@@ -1,6 +1,6 @@
 <?php
 $access_token = 'jtqPqB5fZ6o4qDNivmswM07ymMVt8Sd0JFzW5NzSHApplakd3v/CP/KwrzSIZLJ9nrhhgfJBJ7iXjSdDVks4jkjHvP3kL767FnvjAJ0zhMPiF7EkROzBRtpY9NQ++WMFVt4WY+RHePqqiprDW9bjZgdB04t89/1O/w1cDnyilFU=';
-$giphy_key = 'dc6zaTOxFJmzC'
+$giphy_key = 'dc6zaTOxFJmzC';
 
 //http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC 
 // Get POST body content
@@ -14,7 +14,7 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if($event['type'] == 'message'){
  				switch($event['message']['type']){
- 					$eventM = $event['message']['text'];
+ 					
 	 				case 'text':
 	 					if($event['message']['text'] == "/help"){
 
