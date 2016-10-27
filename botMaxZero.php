@@ -306,6 +306,18 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$sticker],
 							];
+						}else if($event['message']['text'] == "222"){
+
+							$text =  "/123".$event['message']['text'];
+							$messages1 = [
+							'type' => 'text',
+							'text' => $text
+							];
+							$replyToken = $event['replyToken']; 
+							$senddata =  [
+								'replyToken' => $replyToken,
+								'messages' => [$messages1],
+							];
 						}														
 			
 
