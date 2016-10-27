@@ -306,9 +306,9 @@ if (!is_null($events['events'])) {
 								'replyToken' => $replyToken,
 								'messages' => [$sticker],
 							];
-						}else if($event['message']['text'] == "222"){
+						}else if($event['message']['text'] == "/giphy".' '.$event['message']['text']){
 
-							$text =  "/123".$event['message']['text'];
+							$text =  "/giphy".' '.$event['message']['text'];
 							$messages1 = [
 							'type' => 'text',
 							'text' => $text
