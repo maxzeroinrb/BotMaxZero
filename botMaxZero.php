@@ -309,11 +309,11 @@ if (!is_null($events['events'])) {
 								'messages' => [$sticker],
 							];
 						}else if($event['message']['text'] == "/giphy".$event['message']['text']){
-							$url_giphy = 'http://api.giphy.com/v1/gifs/search?q='.$event['message']['text'].'&api_key'.$giphy_key;
-							$json_giphy =json_decode(file_get_contents($url_giphy));
-							$result_giphy = $json['data'][0]['embed_url'];
-
-							$text = $result_giphy;
+							// $url_giphy = 'http://api.giphy.com/v1/gifs/search?q='.$event['message']['text'].'&api_key'.$giphy_key;
+							// $json_giphy =json_decode(file_get_contents($url_giphy));
+							// $result_giphy = $json['data'][0]['embed_url'];
+							$text = "/giphy".$event['message']['text'];
+							//$text = $result_giphy;
 							$messages1 = [
 							'type' => 'text',
 							'text' => $text
