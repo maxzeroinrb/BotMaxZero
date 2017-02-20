@@ -321,7 +321,7 @@ if (!is_null($events['events'])) {
 						// }
 						//
 
-	 					 $data=file_get_contents("http://dict.longdo.com/mobile.php?search=".$keyword);
+	 					 $data=file_get_contents("http://dict.longdo.com/mobile.php?search=".$event['message']['text']);
 
 						$text = strip_tags($data,"<a><table><td><tr><font><style><meta><br>");
 
