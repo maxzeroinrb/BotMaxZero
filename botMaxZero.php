@@ -13,43 +13,35 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-				if(strlen($text) != mb_strlen($text, 'utf-8'))
-				{
-					// echo "Please enter English words only";
-				}else
-				{
-					// echo "OK, English Detected!";
-					$urlcard  = getcard($text);
-							// Get replyToken
-					$replyToken = $event['replyToken'];
+			$urlcard  = getcard($text);
+			// Get replyToken
+			$replyToken = $event['replyToken'];
 
-							// Build message to reply back
-					$messages = [
-							'type' => 'text',
-							'text' => $urlcard
-							];
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $urlcard
+			];
 
-					// Make a POST Request to Messaging API to reply to sender
-					$url = 'https://api.line.me/v2/bot/message/reply';
-					$data = [
-						'replyToken' => $replyToken,
-						'messages' => [$messages],
-					];
-					$post = json_encode($data);
-					$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 
-					$ch = curl_init($url);
-					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-					curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-					$result = curl_exec($ch);
-					curl_close($ch);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
 
-					echo $result . "\r\n";
-				}
-
+			echo $result . "\r\n";
 		}
 	}
 }
@@ -80,16 +72,9 @@ function getcard($name){
 			curl_close($ch);
 			$obj = json_decode($result);
 			$arrayitem =  $obj->items;
+			$cardlist = $arrayitem[0]->url;
 
-			if($arrayitem != ""){
-				$cardlist = $arrayitem[0]->url;
-				return $cardlist;
-			}else{
-								
-				return 'การ์ดใบนี้ไม่มีนะจ๊ะ';
-			}
-			
-	
+		return $cardlist;
 }
 
 
