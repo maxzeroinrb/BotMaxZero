@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-			 if(strlen($cardname) != mb_strlen($cardname, 'utf-8'))
+			 if(strlen($text) != mb_strlen($text, 'utf-8'))
 			    { 
 			        // echo "Please enter English words only:(";
 			    }
