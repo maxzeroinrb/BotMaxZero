@@ -86,7 +86,7 @@ function getcard($name){
 				return $cardlist;
 			}else{
 								
-				return "การ์ดใบนี้ไม่มีนะจ๊ะ";
+				return 'การ์ดใบนี้ไม่มีนะจ๊ะ';
 			}
 			
 	
