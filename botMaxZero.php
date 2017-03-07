@@ -74,6 +74,14 @@ function getcard($name){
 			$arrayitem =  $obj->items;
 			$cardlist = $arrayitem[0]->url;
 
+			if($arrayitem != ""){
+				$cardlist = $arrayitem[0]->url;
+				echo $cardlist;
+			}else{
+				$cardlist = "การ์ดใบนี้ไม่มีนะจ๊ะ";
+			}
+			
+
 		return $cardlist;
 }
 
