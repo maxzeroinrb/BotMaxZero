@@ -13,7 +13,7 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
-			
+
 			$urlcard  = getcard($text);
 
 			// Get replyToken
@@ -75,13 +75,19 @@ function getcard($name){
 			$obj = json_decode($result);
 			$arrayitem =  $obj->items;
 			$cardlist = $arrayitem[0]->url;
-
-			if($arrayitem != ""){
-				$cardlist = $arrayitem[0]->url;
-				echo $cardlist;
-			}else{
-				$cardlist = "การ์ดใบนี้ไม่มีนะจ๊ะ";
-			}
+		if(strlen($cardname) != mb_strlen($cardname, 'utf-8'))
+		    { 
+		        echo "Please enter English words only:(";
+		    }
+		    else {
+		       	if($arrayitem != ""){
+					$cardlist = $arrayitem[0]->url;
+					echo $cardlist;
+				}else{
+					$cardlist = "การ์ดใบนี้ไม่มีนะจ๊ะ";
+				}
+		    }
+	
 			
 
 		return $cardlist;
